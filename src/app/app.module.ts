@@ -6,22 +6,23 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 
 import { environment } from "src/environments/environment";
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { IngresoEgroComponent } from './ingreso-egro/ingreso-egro.component';
-import { EstadisticaComponent } from './ingreso-egro/estadistica/estadistica.component';
-import { DetalleComponent } from './ingreso-egro/detalle/detalle.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { appReducers } from './app.reducer';
+import { IngresoEgresoComponent } from './ingreso-egreso/ingreso-egreso.component';
+import { EstadisticaComponent } from './ingreso-egreso/estadistica/estadistica.component';
+import { DetalleComponent } from './ingreso-egreso/detalle/detalle.component';
+import { OrdenIngresoPipe } from './pipes/orden-ingreso.pipe';
 
 @NgModule({
   declarations: [
@@ -29,16 +30,18 @@ import { appReducers } from './app.reducer';
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    IngresoEgroComponent,
+    IngresoEgresoComponent,
     EstadisticaComponent,
     DetalleComponent,
     FooterComponent,
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    OrdenIngresoPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
