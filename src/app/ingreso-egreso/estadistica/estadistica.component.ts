@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/app.reducer';
 import { IngresoEgreso } from 'src/app/models/ingreso-egreso.model';
+import { AppStateWithIngreso } from '../ingreso-egreso.reducer';
 
 @Component({
   selector: 'app-estadistica',
@@ -15,11 +15,11 @@ export class EstadisticaComponent implements OnInit {
   totalEgresos: number = 0;
 
   constructor(
-  private store: Store<AppState>
+  private store: Store<AppStateWithIngreso>
   ) { }
 
   ngOnInit() {
-    this.store.select('IngresosEgresos')
+    this.store.select('ingresosEgresos')
     .subscribe( ({items}) => this.generarEstadistica(items));
   }
 
